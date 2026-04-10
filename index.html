@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacim FADEL — IT Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">NF<span class="accent">_</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">A Propos</a></li>
+                <li><a href="#skills">Competences</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Formation</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#veille">Veille</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-inner">
+            <div class="hero-tag reveal-up">
+                <span class="tag-dot"></span>
+                <span>Disponible &bull; Ile-de-France</span>
+            </div>
+            <h1 class="hero-title reveal-up delay-1">
+                <span class="hero-first">Nacim</span>
+                <span class="hero-last">FADEL</span>
+            </h1>
+            <div class="hero-roles reveal-up delay-2">
+                <span class="role active" id="roleText">Charge de Proximite IT</span>
+            </div>
+            <p class="hero-desc reveal-up delay-3">
+                BTS SIO SISR &bull; Alternance &bull; Securite Reseau
+            </p>
+            <div class="hero-actions reveal-up delay-4">
+                <a href="#experience" class="btn btn-fill">Voir mon parcours</a>
+                <a href="#contact" class="btn btn-ghost">Contact</a>
+            </div>
+            <div class="hero-stats reveal-up delay-5">
+                <div class="stat">
+                    <span class="stat-num">4+</span>
+                    <span class="stat-label">Ans d'experience</span>
+                </div>
+                <div class="stat-sep"></div>
+                <div class="stat">
+                    <span class="stat-num">6</span>
+                    <span class="stat-label">Postes occupes</span>
+                </div>
+                <div class="stat-sep"></div>
+                <div class="stat">
+                    <span class="stat-num">IDF</span>
+                    <span class="stat-label">Ile-de-France</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-bar"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section section-light">
+        <div class="container">
+            <div class="sec-label fade-in">
+                <span class="sec-num">01</span>
+                <span class="sec-slash">/</span>
+                <span class="sec-name">A PROPOS</span>
+            </div>
+            <div class="about-layout">
+                <div class="about-left fade-in delay-1">
+                    <h2 class="sec-title">Technicien IT<br><em>oriente securite</em></h2>
+                    <p class="about-intro">Reconverti dans l'informatique apres une premiere experience commerciale, j'ai construit un parcours terrain solide — support, deploiement, infrastructure — avec un objectif clair : la <strong>securite reseau</strong>.</p>
+                    <p class="about-body">Actuellement en alternance chez ENTORIA dans le cadre de mon BTS SIO SISR, j'interviens au quotidien sur l'administration systeme, la gestion des incidents et la proximite utilisateurs. Je me forme en parallele sur le scripting PowerShell et les tests de penetration via des labs en environnement virtuel.</p>
+                    <p class="about-body">Mon parcours passe par des environnements exigeants : Disney, ECONOCOM sur toute l'Ile-de-France, reconversion reussie. Je suis du genre a m'adapter vite et a apprendre par la pratique.</p>
+                    <div class="chips">
+                        <span class="chip">Chelles, 77</span>
+                        <span class="chip">Permis B</span>
+                        <span class="chip">Alternance</span>
+                        <span class="chip">Securite Reseau</span>
+                        <span class="chip">Admin Systeme</span>
+                    </div>
+                </div>
+                <div class="about-right fade-in delay-2">
+                    <div class="info-block">
+                        <div class="info-block-title">Langues</div>
+                        <ul class="lang-list">
+                            <li>
+                                <span class="lang-name">Francais</span>
+                                <span class="lang-bar"><span style="width:100%"></span></span>
+                                <span class="lang-lvl">Natif</span>
+                            </li>
+                            <li>
+                                <span class="lang-name">Anglais</span>
+                                <span class="lang-bar"><span style="width:80%"></span></span>
+                                <span class="lang-lvl">Pro</span>
+                            </li>
+                            <li>
+                                <span class="lang-name">Arabe (Darija)</span>
+                                <span class="lang-bar"><span style="width:75%"></span></span>
+                                <span class="lang-lvl">Courant</span>
+                            </li>
+                            <li>
+                                <span class="lang-name">Espagnol</span>
+                                <span class="lang-bar"><span style="width:25%"></span></span>
+                                <span class="lang-lvl">Notions</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-block" style="margin-top:1.5rem">
+                        <div class="info-block-title">Objectif</div>
+                        <p class="info-block-text">Evoluer vers un poste de <strong>specialiste securite reseau</strong> — administration des infrastructures, protection des systemes, reponse aux incidents.</p>
+                    </div>
+                    <div class="info-block" style="margin-top:1.5rem">
+                        <div class="info-block-title">Contact rapide</div>
+                        <a href="mailto:nacim.fdl@gmail.com" class="quick-link">nacim.fdl@gmail.com</a>
+                        <a href="https://www.linkedin.com/in/nacim-fadel-5984b9250/" target="_blank" rel="noopener" class="quick-link">linkedin.com/in/nacim-fadel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section section-dark">
+        <div class="container">
+            <div class="sec-label fade-in">
+                <span class="sec-num">02</span>
+                <span class="sec-slash">/</span>
+                <span class="sec-name">COMPETENCES</span>
+            </div>
+            <h2 class="sec-title light fade-in delay-1">Stack technique</h2>
+            <div class="skills-grid">
+
+                <div class="skill-block fade-in delay-1">
+                    <div class="skill-block-header">
+                        <span class="skill-ico">SYS</span>
+                        <h3>Systemes &amp; Serveurs</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>Administration serveurs Windows</li>
+                        <li>Active Directory &amp; GPO</li>
+                        <li>Gestion des droits d'acces</li>
+                        <li>MFA &amp; securite des acces</li>
+                        <li>GLPI (ticketing &amp; inventaire)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-block fade-in delay-2">
+                    <div class="skill-block-header">
+                        <span class="skill-ico">NET</span>
+                        <h3>Reseau &amp; Securite</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>TCP/IP, DNS, DHCP</li>
+                        <li>Filtrage web &amp; pare-feu</li>
+                        <li>VPN &amp; segmentation reseau</li>
+                        <li>Tests de penetration (labs)</li>
+                        <li>Analyse de vulnerabilites</li>
+                    </ul>
+                </div>
+
+                <div class="skill-block fade-in delay-3">
+                    <div class="skill-block-header">
+                        <span class="skill-ico">CLD</span>
+                        <h3>Cloud &amp; MDM</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>Microsoft Azure (Entra ID)</li>
+                        <li>Microsoft Intune</li>
+                        <li>Microsoft 365 Admin</li>
+                    </ul>
+                </div>
+
+                <div class="skill-block fade-in delay-4">
+                    <div class="skill-block-header">
+                        <span class="skill-ico">SCR</span>
+                        <h3>Scripting &amp; Outils</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>PowerShell (en formation active)</li>
+                        <li>Bash / Linux CLI</li>
+                        <li>Virtualisation (VMware / VirtualBox)</li>
+                        <li>Developpement via IA</li>
+                    </ul>
+                </div>
+
+                <div class="skill-block fade-in delay-5">
+                    <div class="skill-block-header">
+                        <span class="skill-ico">OPS</span>
+                        <h3>Support &amp; Terrain</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>Support N1 / N2</li>
+                        <li>Gestion d'incidents H/W &amp; S/W</li>
+                        <li>Deploiement &amp; mise en service</li>
+                        <li>Cable management &amp; baies</li>
+                        <li>Configuration postes &amp; periph.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section section-light">
+        <div class="container">
+            <div class="sec-label fade-in">
+                <span class="sec-num">03</span>
+                <span class="sec-slash">/</span>
+                <span class="sec-name">EXPERIENCE</span>
+            </div>
+            <h2 class="sec-title fade-in delay-1">Parcours professionnel</h2>
+
+            <div class="timeline">
+
+                <div class="tl-item fade-in">
+                    <div class="tl-side">
+                        <span class="tl-date">Sept. 2025 &rarr; 2027</span>
+                        <span class="tl-badge current">EN COURS</span>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-head">
+                            <h3 class="tl-title">Charge de Proximite IT</h3>
+                            <span class="tl-company">ENTORIA</span>
+                            <span class="tl-type">Alternance</span>
+                        </div>
+                        <p class="tl-desc">Administration systeme et support de proximite dans le cadre du BTS SIO SISR. Gestion des incidents, suivi des equipements, intervention sur l'infrastructure reseau interne.</p>
+                        <div class="tl-tags">
+                            <span>Support N2</span><span>Admin Reseau</span><span>Incidents</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tl-item fade-in delay-1">
+                    <div class="tl-side">
+                        <span class="tl-date">Ete 2025 &mdash; 2 mois</span>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-head">
+                            <h3 class="tl-title">Technicien Informatique Terrain</h3>
+                            <span class="tl-company">Walt Disney Company</span>
+                            <span class="tl-type">Interim</span>
+                        </div>
+                        <p class="tl-desc">Deploiement et configuration des systemes de caisse dans les boutiques Disney (Disneyland Paris). Cable management des baies, installation et mise en service du materiel, respect des contraintes de securite visiteurs.</p>
+                        <div class="tl-tags">
+                            <span>Deploiement</span><span>Cable Management</span><span>Caisses PDV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tl-item fade-in delay-2">
+                    <div class="tl-side">
+                        <span class="tl-date">Juin 2025 &mdash; Ete 2025</span>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-head">
+                            <h3 class="tl-title">Technicien Deploiement IT</h3>
+                            <span class="tl-company">ECONOCOM</span>
+                            <span class="tl-type">Interim</span>
+                        </div>
+                        <p class="tl-desc">Renouvellement de parc informatique dans les maisons de retraite sur l'ensemble de l'Ile-de-France. Deballage, installation, configuration et recette des postes.</p>
+                        <div class="tl-tags">
+                            <span>Deploiement Parc</span><span>Ile-de-France</span><span>Mise en service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tl-item fade-in delay-3">
+                    <div class="tl-side">
+                        <span class="tl-date">2023 &rarr; 2024</span>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-head">
+                            <h3 class="tl-title">Technicien Support Informatique</h3>
+                            <span class="tl-company">L'Empreinte</span>
+                            <span class="tl-type">Alternance</span>
+                        </div>
+                        <p class="tl-desc">1 an en alternance : support utilisateurs N1/N2, gestion des incidents hardware et software, administration des droits d'acces et configuration des postes. Reconversion informatique reussie.</p>
+                        <div class="tl-tags">
+                            <span>Support N1/N2</span><span>Incidents H/W S/W</span><span>Droits d'acces</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tl-item fade-in delay-4">
+                    <div class="tl-side">
+                        <span class="tl-date">Aout 2023</span>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-head">
+                            <h3 class="tl-title">Commercial</h3>
+                            <span class="tl-company">Level UP Group</span>
+                            <span class="tl-type">Alternance</span>
+                        </div>
+                        <p class="tl-desc">Developpement commercial, relation client et suivi de portefeuille.</p>
+                        <div class="tl-tags">
+                            <span>Commercial</span><span>Relation Client</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tl-item fade-in delay-5">
+                    <div class="tl-side">
+                        <span class="tl-date">2022 &rarr; 2023</span>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-head">
+                            <h3 class="tl-title">Commercial</h3>
+                            <span class="tl-company">APB Group</span>
+                            <span class="tl-type">Alternance</span>
+                        </div>
+                        <p class="tl-desc">Premier poste en alternance : prospection, relation client et acquisition des fondamentaux du monde professionnel.</p>
+                        <div class="tl-tags">
+                            <span>Commercial</span><span>Prospection</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="section section-dark">
+        <div class="container">
+            <div class="sec-label fade-in">
+                <span class="sec-num">04</span>
+                <span class="sec-slash">/</span>
+                <span class="sec-name">FORMATION</span>
+            </div>
+            <h2 class="sec-title light fade-in delay-1">Diplomes &amp; certifications</h2>
+            <div class="edu-grid">
+
+                <div class="edu-card fade-in delay-1">
+                    <div class="edu-top">
+                        <span class="edu-badge current">EN COURS</span>
+                        <span class="edu-year">2025 &rarr; 2027</span>
+                    </div>
+                    <h3 class="edu-title">BTS SIO<br>option SISR</h3>
+                    <div class="edu-school">IMIE Paris</div>
+                    <p class="edu-desc">Solutions d'Infrastructure, Systemes et Reseaux. Administration reseau, securite des systemes, gestion de services IT. Formation en alternance.</p>
+                    <div class="edu-modules">
+                        <span>Administration Reseau</span>
+                        <span>Securite SI</span>
+                        <span>Virtualisation</span>
+                        <span>Scripting</span>
+                    </div>
+                </div>
+
+                <div class="edu-card fade-in delay-2">
+                    <div class="edu-top">
+                        <span class="edu-badge obtained">OBTENU</span>
+                    </div>
+                    <h3 class="edu-title">TP Technico-<br>Commercial</h3>
+                    <div class="edu-school">SKOOLEO</div>
+                    <p class="edu-desc">Titre professionnel certifie. Formation alliant competences techniques et commerciales, socle de ma reconversion vers l'informatique.</p>
+                    <div class="edu-modules">
+                        <span>Titre Pro</span>
+                        <span>Niveau 4</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section section-light">
+        <div class="container">
+            <div class="sec-label fade-in">
+                <span class="sec-num">05</span>
+                <span class="sec-slash">/</span>
+                <span class="sec-name">PROJETS</span>
+            </div>
+            <h2 class="sec-title fade-in delay-1">Labs &amp; projets personnels</h2>
+            <div class="proj-grid">
+
+                <div class="proj-card fade-in delay-1" onclick="window.location='projects/pentest-lab.html'" style="cursor:pointer">
+                    <div class="proj-num">01</div>
+                    <h3 class="proj-title">Lab Pentest — Kali Linux &amp; Metasploit</h3>
+                    <p class="proj-desc">Mise en place d'un environnement isole de tests de penetration sur machines virtuelles. Simulation d'attaques (scan reseau, exploitation de vulnerabilites, privilege escalation) et analyse des logs en defense.</p>
+                    <div class="proj-stack">
+                        <span>Kali Linux</span>
+                        <span>Metasploit</span>
+                        <span>Nmap</span>
+                        <span>VirtualBox</span>
+                        <span>Pentest</span>
+                    </div>
+                    <div class="proj-cta">Voir le detail <span>&rarr;</span></div>
+                </div>
+
+                <div class="proj-card fade-in delay-2" onclick="window.location='projects/powershell-scripts.html'" style="cursor:pointer">
+                    <div class="proj-num">02</div>
+                    <h3 class="proj-title">Scripts PowerShell — Automatisation Admin</h3>
+                    <p class="proj-desc">Developpement de scripts PowerShell pour automatiser les taches recurrentes d'administration : gestion des utilisateurs AD, rapports d'inventaire, nettoyage de comptes, alertes systeme. Formation continue sur le sujet.</p>
+                    <div class="proj-stack">
+                        <span>PowerShell</span>
+                        <span>Active Directory</span>
+                        <span>Automatisation</span>
+                        <span>Windows Server</span>
+                    </div>
+                    <div class="proj-cta">Voir le detail <span>&rarr;</span></div>
+                </div>
+
+                <div class="proj-card fade-in delay-3" onclick="window.location='projects/ia-applications.html'" style="cursor:pointer">
+                    <div class="proj-num">03</div>
+                    <h3 class="proj-title">Applications IA — Outils &amp; Prototypes</h3>
+                    <p class="proj-desc">Creation d'applications et d'outils en tirant parti des APIs d'intelligence artificielle. Exploration des usages concrets de l'IA dans un contexte professionnel IT : assistance, generation de scripts, automatisation.</p>
+                    <div class="proj-stack">
+                        <span>IA / LLM</span>
+                        <span>APIs</span>
+                        <span>Prototypage</span>
+                        <span>Automatisation</span>
+                    </div>
+                    <div class="proj-cta">Voir le detail <span>&rarr;</span></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VEILLE TECHNOLOGIQUE ===== -->
+    <section id="veille" class="section section-dark">
+        <div class="container">
+            <div class="sec-label fade-in">
+                <span class="sec-num">06</span>
+                <span class="sec-slash">/</span>
+                <span class="sec-name">VEILLE TECHNOLOGIQUE</span>
+            </div>
+            <div class="veille-header fade-in delay-1">
+                <h2 class="sec-title light">Actu Reseau &amp; Securite</h2>
+                <div class="veille-status">
+                    <span class="veille-dot" id="veilleStatusDot"></span>
+                    <span class="veille-status-text" id="veilleStatusText">Chargement...</span>
+                    <button class="veille-refresh" id="veilleRefresh" title="Actualiser">&#8635;</button>
+                </div>
+            </div>
+            <div class="veille-filters fade-in delay-2">
+                <button class="vf-btn active" data-filter="all">Tous</button>
+                <button class="vf-btn" data-filter="securite">Securite</button>
+                <button class="vf-btn" data-filter="reseau">Reseau</button>
+                <button class="vf-btn" data-filter="vulnerabilite">Vulnerabilites</button>
+            </div>
+            <div class="veille-grid" id="veilleGrid">
+                <!-- Rempli par JS -->
+                <div class="veille-loading" id="veilleLoading">
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar delay"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar delay"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar delay"></div>
+                </div>
+            </div>
+            <div class="veille-sources fade-in delay-3">
+                <span class="veille-sources-label">Sources :</span>
+                <span>The Hacker News</span>
+                <span>BleepingComputer</span>
+                <span>Krebs on Security</span>
+                <span>SANS ISC</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section section-dark">
+        <div class="container">
+            <div class="sec-label fade-in">
+                <span class="sec-num">07</span>
+                <span class="sec-slash">/</span>
+                <span class="sec-name">CONTACT</span>
+            </div>
+            <div class="contact-layout">
+                <div class="contact-left fade-in delay-1">
+                    <h2 class="sec-title light">Travaillons<br>ensemble.</h2>
+                    <p class="contact-sub">Ouvert aux opportunites en <strong>securite reseau</strong>, administration systeme et infrastructure IT en Ile-de-France.</p>
+                </div>
+                <div class="contact-right fade-in delay-2">
+                    <a href="mailto:nacim.fdl@gmail.com" class="cta-link">
+                        <span class="cta-label">Email</span>
+                        <span class="cta-value">nacim.fdl@gmail.com</span>
+                        <span class="cta-arrow">&rarr;</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nacim-fadel-5984b9250/" target="_blank" rel="noopener" class="cta-link">
+                        <span class="cta-label">LinkedIn</span>
+                        <span class="cta-value">Nacim FADEL</span>
+                        <span class="cta-arrow">&rarr;</span>
+                    </a>
+                    <div class="cta-link no-link">
+                        <span class="cta-label">Localisation</span>
+                        <span class="cta-value">Chelles, 77 — Ile-de-France</span>
+                    </div>
+                    <a href="mailto:nacim.fdl@gmail.com" class="btn btn-fill btn-large" style="margin-top:2rem">Envoyer un message</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-name">Nacim FADEL</span>
+            <span class="footer-line"></span>
+            <span class="footer-copy">Paris, Ile-de-France &mdash; 2025</span>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
