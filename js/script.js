@@ -266,7 +266,7 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
     }
 
     async function fetchFeed(feed) {
-        const resp = await fetch(API + encodeURIComponent(feed.url));
+        const resp = await fetch(API + encodeURIComponent(feed.url) + '&_=' + Date.now(), { cache: 'no-store' });
         const data = await resp.json();
         if (data.status !== 'ok' || !Array.isArray(data.items)) return [];
         return data.items
