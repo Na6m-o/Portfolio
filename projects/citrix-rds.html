@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citrix / RDS — Nacim FADEL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">NF<span class="accent">_</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">A Propos</a></li>
+                <li><a href="../index.html#skills">Competences</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#education">Formation</a></li>
+                <li><a href="../index.html#projects" class="active">Projets</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="proj-hero">
+        <div class="proj-hero-inner">
+            <a href="../index.html#projects" class="back-link">&larr; Retour aux projets</a>
+            <div class="proj-hero-meta">
+                <span class="proj-hero-num">04</span>
+                <span class="proj-hero-cat">Virtualisation — Bureau a distance</span>
+            </div>
+            <h1 class="proj-hero-title">Citrix / RDS<br><em>Virtualisation applicative</em></h1>
+            <p class="proj-hero-sub">Administration de l'infrastructure de bureau a distance et de publication d'applications — gestion des sessions, profils utilisateurs et resolution des incidents.</p>
+            <div class="proj-hero-tags">
+                <span>Citrix</span>
+                <span>RDS</span>
+                <span>Windows Server</span>
+                <span>VDI</span>
+                <span>RemoteApp</span>
+            </div>
+        </div>
+        <div class="proj-hero-nav">
+            <a href="voip.html" class="proj-nav-next">Projet suivant &rarr;</a>
+        </div>
+    </header>
+
+    <main class="proj-main">
+
+        <section class="proj-section">
+            <div class="proj-container">
+                <div class="proj-sec-label">
+                    <span class="proj-sec-num">01</span>
+                    <span>/</span>
+                    <span>CONTEXTE</span>
+                </div>
+                <div class="proj-two-col">
+                    <div>
+                        <h2 class="proj-sec-title">Acces aux applications metier</h2>
+                        <p>ENTORIA utilise Citrix et les services RDS de Windows Server pour permettre aux collaborateurs d'acceder aux applications metier depuis n'importe quel poste, y compris en teletravail.</p>
+                        <p>Mon role consiste a administrer ces infrastructures : gestion des sessions actives, resolution des incidents de connexion, gestion des profils et publication de nouvelles applications.</p>
+                    </div>
+                    <div class="proj-info-box">
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Type</span>
+                            <span>Mission en alternance — ENTORIA</span>
+                        </div>
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Statut</span>
+                            <span class="status-active">En production</span>
+                        </div>
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Technologies</span>
+                            <span>Citrix + RDS Windows Server</span>
+                        </div>
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Utilisateurs</span>
+                            <span>Ensemble des collaborateurs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proj-section proj-section-dark">
+            <div class="proj-container">
+                <div class="proj-sec-label light">
+                    <span class="proj-sec-num">02</span>
+                    <span>/</span>
+                    <span>INFRASTRUCTURE</span>
+                </div>
+                <h2 class="proj-sec-title light">Architecture de virtualisation</h2>
+                <div class="infra-grid">
+                    <div class="infra-card">
+                        <div class="infra-icon">CTX</div>
+                        <h3>Citrix</h3>
+                        <p>Publication d'applications et de bureaux virtuels via Citrix Virtual Apps and Desktops.</p>
+                        <ul>
+                            <li>Publication d'applications</li>
+                            <li>Citrix Receiver / Workspace</li>
+                            <li>Gestion des delivery groups</li>
+                            <li>Monitoring des sessions</li>
+                        </ul>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">RDS</div>
+                        <h3>Remote Desktop Services</h3>
+                        <p>Infrastructure RDS sous Windows Server pour les acces distants et la publication RemoteApp.</p>
+                        <ul>
+                            <li>RD Session Host</li>
+                            <li>RemoteApp</li>
+                            <li>RD Gateway</li>
+                            <li>Gestion des licences RDS</li>
+                        </ul>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">USR</div>
+                        <h3>Profils utilisateurs</h3>
+                        <p>Gestion des profils itinerants et des environnements personnalises pour les sessions distantes.</p>
+                        <ul>
+                            <li>Profils itinerants</li>
+                            <li>Redirections de dossiers</li>
+                            <li>GPO de session</li>
+                            <li>FSLogix</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proj-section">
+            <div class="proj-container">
+                <div class="proj-sec-label">
+                    <span class="proj-sec-num">03</span>
+                    <span>/</span>
+                    <span>APPORTS</span>
+                </div>
+                <h2 class="proj-sec-title">Ce que ce projet m'a apporte</h2>
+                <div class="learnings-grid">
+                    <div class="learning-card">
+                        <div class="learning-icon">VDI</div>
+                        <h3>Virtualisation applicative</h3>
+                        <p>Comprendre les architectures VDI et de publication d'applications — les avantages en termes de centralisation, securite et maintenabilite.</p>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-icon">SRV</div>
+                        <h3>Windows Server</h3>
+                        <p>Approfondir l'administration de Windows Server : roles RDS, gestion des sessions, supervision des ressources et optimisation des performances.</p>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-icon">INC</div>
+                        <h3>Diagnostic des incidents</h3>
+                        <p>Resoudre des incidents variés : sessions bloquees, problemes de licences, profils corrompus, lenteurs applicatives — en identifiant rapidement la cause racine.</p>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-icon">SEC</div>
+                        <h3>Securite des acces distants</h3>
+                        <p>Comprendre les enjeux de securite propres aux acces distants : isolation des sessions, gestion des droits, protection contre les fuites de donnees.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-name">Nacim FADEL</span>
+            <span class="footer-line"></span>
+            <div style="display:flex; gap:1.5rem; align-items:center">
+                <a href="voip.html" class="footer-proj-link">Projet suivant &rarr;</a>
+                <a href="../index.html#projects" class="footer-proj-link">&larr; Tous les projets</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/project.js"></script>
+</body>
+</html>

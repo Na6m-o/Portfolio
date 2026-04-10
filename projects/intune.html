@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploiement Intune — Nacim FADEL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">NF<span class="accent">_</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">A Propos</a></li>
+                <li><a href="../index.html#skills">Competences</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#education">Formation</a></li>
+                <li><a href="../index.html#projects" class="active">Projets</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="proj-hero">
+        <div class="proj-hero-inner">
+            <a href="../index.html#projects" class="back-link">&larr; Retour aux projets</a>
+            <div class="proj-hero-meta">
+                <span class="proj-hero-num">01</span>
+                <span class="proj-hero-cat">Gestion de parc — MDM</span>
+            </div>
+            <h1 class="proj-hero-title">Deploiement<br><em>Microsoft Intune</em></h1>
+            <p class="proj-hero-sub">Mise en place de la gestion MDM des postes Windows en entreprise — enrolement, configuration des politiques et deploiement applicatif via le portail Azure.</p>
+            <div class="proj-hero-tags">
+                <span>Microsoft Intune</span>
+                <span>Azure AD</span>
+                <span>MDM</span>
+                <span>Windows 10/11</span>
+                <span>Microsoft 365</span>
+            </div>
+        </div>
+        <div class="proj-hero-nav">
+            <a href="sdone.html" class="proj-nav-next">Projet suivant &rarr;</a>
+        </div>
+    </header>
+
+    <main class="proj-main">
+
+        <section class="proj-section">
+            <div class="proj-container">
+                <div class="proj-sec-label">
+                    <span class="proj-sec-num">01</span>
+                    <span>/</span>
+                    <span>CONTEXTE</span>
+                </div>
+                <div class="proj-two-col">
+                    <div>
+                        <h2 class="proj-sec-title">Pourquoi Intune ?</h2>
+                        <p>Dans le cadre de mon alternance chez ENTORIA, la gestion des postes utilisateurs necessitait une solution centralisee et scalable. Microsoft Intune a ete choisi pour unifier l'administration des terminaux Windows sous un seul portail cloud.</p>
+                        <p>L'objectif etait d'assurer la conformite des postes, automatiser les deploiements d'applications et securiser les acces en lien avec Azure Active Directory.</p>
+                    </div>
+                    <div class="proj-info-box">
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Type</span>
+                            <span>Mission en alternance — ENTORIA</span>
+                        </div>
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Statut</span>
+                            <span class="status-active">En production</span>
+                        </div>
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Perimetre</span>
+                            <span>Postes Windows 10/11</span>
+                        </div>
+                        <div class="proj-info-row">
+                            <span class="proj-info-label">Portail</span>
+                            <span>Microsoft Endpoint Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proj-section proj-section-dark">
+            <div class="proj-container">
+                <div class="proj-sec-label light">
+                    <span class="proj-sec-num">02</span>
+                    <span>/</span>
+                    <span>MISE EN OEUVRE</span>
+                </div>
+                <h2 class="proj-sec-title light">Ce qui a ete deploye</h2>
+                <div class="infra-grid">
+                    <div class="infra-card">
+                        <div class="infra-icon">MDM</div>
+                        <h3>Enrolement des postes</h3>
+                        <p>Enrolement des machines Windows via Azure AD Join et Autopilot pour les nouveaux arrivants.</p>
+                        <ul>
+                            <li>Azure AD Join</li>
+                            <li>Windows Autopilot</li>
+                            <li>Enrolement manuel</li>
+                            <li>Groupes dynamiques</li>
+                        </ul>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">CFG</div>
+                        <h3>Profils de configuration</h3>
+                        <p>Deploiement de politiques systeme sur les postes : securite, restrictions, personnalisation.</p>
+                        <ul>
+                            <li>Profils Windows</li>
+                            <li>Restrictions applicatives</li>
+                            <li>Configuration BitLocker</li>
+                            <li>Parametres navigateur</li>
+                        </ul>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">APP</div>
+                        <h3>Deploiement applicatif</h3>
+                        <p>Distribution silencieuse des applications metier et outils bureautiques sans intervention utilisateur.</p>
+                        <ul>
+                            <li>Apps Win32</li>
+                            <li>Microsoft 365</li>
+                            <li>Logiciels metier</li>
+                            <li>Scripts PowerShell</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proj-section">
+            <div class="proj-container">
+                <div class="proj-sec-label">
+                    <span class="proj-sec-num">03</span>
+                    <span>/</span>
+                    <span>ETAPES</span>
+                </div>
+                <h2 class="proj-sec-title">Deroulement du projet</h2>
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="step-num">01</div>
+                        <div class="step-body">
+                            <h3>Configuration du tenant Azure</h3>
+                            <p>Mise en place des licences Intune, configuration des groupes Azure AD et definition des politiques d'acces conditionnel pour controler quels appareils peuvent acceder aux ressources.</p>
+                            <div class="step-tags"><span>Azure AD</span><span>Licences M365</span><span>Acces conditionnel</span></div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">02</div>
+                        <div class="step-body">
+                            <h3>Enrolement et tests pilotes</h3>
+                            <p>Enrolement d'un groupe pilote de postes pour valider les profils avant deploiement global. Identification et correction des conflits de politiques.</p>
+                            <div class="step-tags"><span>Pilote</span><span>Validation</span><span>Groupes AD</span></div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">03</div>
+                        <div class="step-body">
+                            <h3>Deploiement des applications</h3>
+                            <p>Packaging des applications au format Intunewin et publication dans le portail. Configuration des regles de detection et des dependances entre applications.</p>
+                            <div class="step-tags"><span>IntuneWin</span><span>Win32 App</span><span>Detection rules</span></div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">04</div>
+                        <div class="step-body">
+                            <h3>Conformite et remontee d'alertes</h3>
+                            <p>Creation de politiques de conformite pour detecter les postes non a jour ou non chiffres. Mise en place d'alertes et actions automatiques en cas de non-conformite.</p>
+                            <div class="step-tags"><span>Compliance</span><span>BitLocker</span><span>Windows Update</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="proj-section proj-section-dark">
+            <div class="proj-container">
+                <div class="proj-sec-label light">
+                    <span class="proj-sec-num">04</span>
+                    <span>/</span>
+                    <span>APPORTS</span>
+                </div>
+                <h2 class="proj-sec-title light">Ce que ce projet m'a apporte</h2>
+                <div class="learnings-grid">
+                    <div class="learning-card">
+                        <div class="learning-icon">CLD</div>
+                        <h3>Cloud &amp; Azure</h3>
+                        <p>Prise en main de l'ecosysteme Microsoft 365 et Azure AD. Comprendre la gestion des identites et des acces dans un environnement hybride.</p>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-icon">MDM</div>
+                        <h3>Gestion de parc moderne</h3>
+                        <p>Passer d'une gestion traditionnelle GPO/SCCM a une approche cloud-first avec Intune — comprendre les differences et les avantages.</p>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-icon">SEC</div>
+                        <h3>Securite des endpoints</h3>
+                        <p>Appliquer des politiques de securite a grande echelle : chiffrement, mises a jour obligatoires, restrictions — sans intervention manuelle poste par poste.</p>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-icon">DOC</div>
+                        <h3>Documentation operationnelle</h3>
+                        <p>Redaction des procedures d'enrolement et des guides utilisateurs pour faciliter l'onboarding des nouveaux arrivants.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-name">Nacim FADEL</span>
+            <span class="footer-line"></span>
+            <div style="display:flex; gap:1.5rem; align-items:center">
+                <a href="sdone.html" class="footer-proj-link">Projet suivant &rarr;</a>
+                <a href="../index.html#projects" class="footer-proj-link">&larr; Tous les projets</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/project.js"></script>
+</body>
+</html>
