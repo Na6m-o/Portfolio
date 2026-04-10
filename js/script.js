@@ -311,7 +311,7 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
             return;
         }
 
-        allArticles = shuffle(collected);
+        allArticles = collected.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
         render(allArticles);
         dot.className   = 'veille-dot live';
         txt.textContent = `Mis a jour ${relativeDate(new Date().toISOString())}`;
