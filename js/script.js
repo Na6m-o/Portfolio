@@ -188,40 +188,24 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
    ---------------------------------------------------------------- */
 (function initVeille() {
 
-    /* Sources RSS — reseau & securite */
     const FEEDS = [
-        {
-            url:    'https://feeds.feedburner.com/TheHackersNews',
-            source: 'The Hacker News',
-            tag:    'securite'
-        },
-        {
-            url:    'https://www.bleepingcomputer.com/feed/',
-            source: 'BleepingComputer',
-            tag:    'vulnerabilite'
-        },
-        {
-            url:    'https://krebsonsecurity.com/feed/',
-            source: 'Krebs on Security',
-            tag:    'securite'
-        },
-        {
-            url:    'https://isc.sans.edu/rssfeed.xml',
-            source: 'SANS ISC',
-            tag:    'reseau'
-        }
+        { url: 'https://feeds.feedburner.com/TheHackersNews',   source: 'The Hacker News', tag: 'securite'      },
+        { url: 'https://www.bleepingcomputer.com/feed/',         source: 'BleepingComputer', tag: 'vulnerabilite' },
+        { url: 'https://krebsonsecurity.com/feed/',              source: 'Krebs on Security', tag: 'securite'     },
+        { url: 'https://isc.sans.edu/rssfeed.xml',               source: 'SANS ISC',          tag: 'reseau'       },
+        { url: 'https://www.darkreading.com/rss.xml',            source: 'Dark Reading',      tag: 'securite'     },
+        { url: 'https://feeds.feedburner.com/NakedSecurity',     source: 'Sophos News',       tag: 'vulnerabilite'}
     ];
 
-    const API    = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    const grid   = document.getElementById('veilleGrid');
-    const dot    = document.getElementById('veilleStatusDot');
-    const txt    = document.getElementById('veilleStatusText');
-    const btn    = document.getElementById('veilleRefresh');
+    const API  = 'https://api.rss2json.com/v1/api.json?rss_url=';
+    const grid = document.getElementById('veilleGrid');
+    const dot  = document.getElementById('veilleStatusDot');
+    const txt  = document.getElementById('veilleStatusText');
+    const btn  = document.getElementById('veilleRefresh');
 
     let allArticles  = [];
     let activeFilter = 'all';
 
-    /* --- Helpers --- */
     function stripHtml(html) {
         const tmp = document.createElement('div');
         tmp.innerHTML = html;
@@ -230,9 +214,7 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
 
     function relativeDate(dateStr) {
         if (!dateStr) return '';
-        const now   = Date.now();
-        const then  = new Date(dateStr).getTime();
-        const diff  = Math.floor((now - then) / 1000);
+        const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 1000);
         if (diff < 60)     return 'A l\'instant';
         if (diff < 3600)   return `Il y a ${Math.floor(diff / 60)} min`;
         if (diff < 86400)  return `Il y a ${Math.floor(diff / 3600)} h`;
@@ -240,31 +222,34 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
         return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
     }
 
-    function tagClass(tag) {
-        return 'tag-' + tag;
-    }
     function tagLabel(tag) {
         return { securite: 'Securite', reseau: 'Reseau', vulnerabilite: 'Vulnerabilite' }[tag] || tag;
     }
 
-    /* --- Render --- */
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
     function render(articles) {
         const filtered = activeFilter === 'all'
             ? articles
             : articles.filter(a => a.tag === activeFilter);
 
         if (filtered.length === 0) {
-            grid.innerHTML = `<div class="veille-error"><strong>Aucun article</strong>Aucun article pour ce filtre pour le moment.</div>`;
+            grid.innerHTML = `<div class="veille-error"><strong>Aucun article</strong> pour ce filtre.</div>`;
             return;
         }
 
         grid.innerHTML = filtered.map((a, i) => `
             <a href="${a.link}" target="_blank" rel="noopener noreferrer"
-               class="news-card fade-in"
-               style="transition-delay:${i * 0.05}s">
+               class="news-card fade-in" style="transition-delay:${i * 0.05}s">
                 <div class="news-card-top">
                     <span class="news-source">${a.source}</span>
-                    <span class="news-tag ${tagClass(a.tag)}">${tagLabel(a.tag)}</span>
+                    <span class="news-tag tag-${a.tag}">${tagLabel(a.tag)}</span>
                 </div>
                 <div class="news-date">${relativeDate(a.pubDate)}</div>
                 <div class="news-title">${a.title}</div>
@@ -273,7 +258,6 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
             </a>
         `).join('');
 
-        /* Trigger fade-in */
         requestAnimationFrame(() => {
             grid.querySelectorAll('.news-card').forEach(el => {
                 setTimeout(() => el.classList.add('visible'), 50);
@@ -281,75 +265,23 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
         });
     }
 
-    /* --- Articles statiques (fallback hors-ligne) --- */
-    const STATIC_ARTICLES = [
-        {
-            title:   'Critical RCE Vulnerability Discovered in OpenSSH (regreSSHion)',
-            link:    'https://thehackernews.com/2024/07/openssh-regresshion-attack.html',
-            pubDate: '2024-07-01',
-            excerpt: 'Une faille critique d\'execution de code a distance (CVE-2024-6387) a ete decouverte dans OpenSSH, affectant des millions de serveurs Linux. Un attaquant non authentifie peut obtenir un acces root sur les systemes vulnerables.',
-            source:  'The Hacker News',
-            tag:     'vulnerabilite'
-        },
-        {
-            title:   'Microsoft Patch Tuesday — 49 Vulnerabilities Fixed Including Zero-Days',
-            link:    'https://www.bleepingcomputer.com/news/microsoft/microsoft-patch-tuesday/',
-            pubDate: '2024-06-11',
-            excerpt: 'Microsoft corrige 49 vulnerabilites dans son Patch Tuesday mensuel, dont plusieurs zero-days exploites activement. Les mises a jour couvrent Windows, Office, Azure et Exchange Server.',
-            source:  'BleepingComputer',
-            tag:     'vulnerabilite'
-        },
-        {
-            title:   'Ransomware Groups Shift to Targeting VMware ESXi Hypervisors',
-            link:    'https://krebsonsecurity.com',
-            pubDate: '2024-06-05',
-            excerpt: 'Les groupes de ransomware ciblent de plus en plus les hyperviseurs VMware ESXi pour maximiser l\'impact de leurs attaques. Un seul hyperviseur compromis peut chiffrer des dizaines de machines virtuelles en quelques minutes.',
-            source:  'Krebs on Security',
-            tag:     'securite'
-        },
-        {
-            title:   'BGP Hijacking Attack Disrupts Major Cloud Providers Traffic',
-            link:    'https://isc.sans.edu',
-            pubDate: '2024-06-03',
-            excerpt: 'Une attaque de detournement BGP (Border Gateway Protocol) a provoque une interruption du trafic reseau chez plusieurs fournisseurs cloud. L\'incident souligne les failles persistantes dans la securite du routage internet.',
-            source:  'SANS ISC',
-            tag:     'reseau'
-        },
-        {
-            title:   'Phishing Campaign Bypasses MFA Using Adversary-in-the-Middle Technique',
-            link:    'https://thehackernews.com',
-            pubDate: '2024-05-28',
-            excerpt: 'Une campagne de phishing sophistiquee utilise la technique AiTM (Adversary-in-the-Middle) pour contourner l\'authentification multifacteur. Les attaquants interceptent les tokens de session apres une connexion legitime.',
-            source:  'The Hacker News',
-            tag:     'securite'
-        },
-        {
-            title:   'CVE-2024-3400 — PAN-OS Zero-Day Actively Exploited in the Wild',
-            link:    'https://www.bleepingcomputer.com',
-            pubDate: '2024-04-12',
-            excerpt: 'Palo Alto Networks confirme l\'exploitation active d\'une vulnerabilite critique dans PAN-OS (GlobalProtect). La faille permet une execution de commandes OS sans authentification sur les pare-feu affectes.',
-            source:  'BleepingComputer',
-            tag:     'vulnerabilite'
-        },
-        {
-            title:   'DNS Tunneling Techniques Used to Exfiltrate Data Undetected',
-            link:    'https://isc.sans.edu',
-            pubDate: '2024-04-08',
-            excerpt: 'Des acteurs malveillants utilisent le tunneling DNS pour exfiltrer des donnees sensibles en contournant les controles de securite reseau traditionnels. Cette technique encode les donnees dans des requetes DNS en apparence legitimes.',
-            source:  'SANS ISC',
-            tag:     'reseau'
-        },
-        {
-            title:   'Supply Chain Attack Targets NPM Packages Used by Thousands of Projects',
-            link:    'https://krebsonsecurity.com',
-            pubDate: '2024-03-20',
-            excerpt: 'Une attaque ciblant la chaine d\'approvisionnement logicielle a compromis plusieurs packages NPM populaires. Des backdoors ont ete injectees dans des versions publiees, affectant potentiellement des milliers de projets dependants.',
-            source:  'Krebs on Security',
-            tag:     'securite'
-        }
-    ];
+    async function fetchFeed(feed) {
+        const resp = await fetch(API + encodeURIComponent(feed.url));
+        const data = await resp.json();
+        if (data.status !== 'ok' || !Array.isArray(data.items)) return [];
+        return data.items
+            .filter(item => item.title && item.link && item.link.startsWith('http'))
+            .slice(0, 5)
+            .map(item => ({
+                title:   item.title,
+                link:    item.link,
+                pubDate: item.pubDate || '',
+                excerpt: stripHtml(item.description || item.content || '').substring(0, 200),
+                source:  feed.source,
+                tag:     feed.tag
+            }));
+    }
 
-    /* --- Charger tous les feeds --- */
     async function loadAll() {
         grid.innerHTML = `
             <div class="veille-loading" id="veilleLoading">
@@ -357,57 +289,34 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
                 <div class="loading-bar"></div><div class="loading-bar delay"></div>
                 <div class="loading-bar"></div><div class="loading-bar delay"></div>
             </div>`;
-        dot.className  = 'veille-dot';
+        dot.className   = 'veille-dot';
         txt.textContent = 'Chargement...';
         if (btn) btn.classList.add('spinning');
 
-        try {
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 7000);
+        const collected = [];
 
-            const results = await Promise.allSettled(FEEDS.map(feed =>
-                fetch(API + encodeURIComponent(feed.url), { signal: controller.signal })
-                    .then(r => r.json())
-                    .then(data => {
-                        if (data.status !== 'ok' || !Array.isArray(data.items)) return [];
-                        return data.items.slice(0, 4).map(item => ({
-                            title:   item.title || 'Sans titre',
-                            link:    item.link  || '#',
-                            pubDate: item.pubDate || '',
-                            excerpt: stripHtml(item.description || item.content || '').substring(0, 200),
-                            source:  feed.source,
-                            tag:     feed.tag
-                        }));
-                    })
-            ));
-            clearTimeout(timeout);
-
-            allArticles = [];
-            results.forEach(r => {
-                if (r.status === 'fulfilled') allArticles.push(...r.value);
-            });
-
-            /* Tri par date decroissante */
-            allArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-            if (allArticles.length === 0) throw new Error('Aucun article recupere');
-
-            render(allArticles);
-            dot.className  = 'veille-dot live';
-            txt.textContent = `Mis a jour ${relativeDate(new Date().toISOString())}`;
-
-        } catch (err) {
-            /* Fallback : articles statiques */
-            allArticles = STATIC_ARTICLES;
-            render(allArticles);
-            dot.className  = 'veille-dot';
-            txt.textContent = 'Articles de reference (mode hors-ligne)';
-        } finally {
-            if (btn) btn.classList.remove('spinning');
+        for (const feed of FEEDS) {
+            try {
+                const articles = await fetchFeed(feed);
+                collected.push(...articles);
+            } catch (_) { /* feed ignoré */ }
         }
+
+        if (btn) btn.classList.remove('spinning');
+
+        if (collected.length === 0) {
+            dot.className   = 'veille-dot';
+            txt.textContent = 'Impossible de charger les flux';
+            grid.innerHTML  = `<div class="veille-error"><strong>Erreur</strong> Impossible de charger les articles.</div>`;
+            return;
+        }
+
+        allArticles = shuffle(collected);
+        render(allArticles);
+        dot.className   = 'veille-dot live';
+        txt.textContent = `Mis a jour ${relativeDate(new Date().toISOString())}`;
     }
 
-    /* --- Filtres --- */
     document.querySelectorAll('.vf-btn').forEach(b => {
         b.addEventListener('click', () => {
             document.querySelectorAll('.vf-btn').forEach(x => x.classList.remove('active'));
@@ -417,10 +326,8 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
         });
     });
 
-    /* --- Bouton refresh --- */
     if (btn) btn.addEventListener('click', loadAll);
 
-    /* --- Lancer au scroll (chargement paresseux) --- */
     const veilleSection = document.getElementById('veille');
     let loaded = false;
     const veilleObserver = new IntersectionObserver(entries => {
@@ -431,7 +338,6 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
     }, { threshold: 0.05 });
     if (veilleSection) veilleObserver.observe(veilleSection);
 
-    /* --- Auto-refresh toutes les 30 min --- */
     setInterval(() => { if (loaded) loadAll(); }, 30 * 60 * 1000);
 
 })();
