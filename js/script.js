@@ -212,7 +212,7 @@ document.querySelectorAll('.about-right').forEach(el => langObserver.observe(el)
         }
     ];
 
-    const API    = 'https://api.rss2json.com/v1/api.json?count=5&rss_url=';
+    const API    = 'https://api.rss2json.com/v1/api.json?rss_url=';
     const grid   = document.getElementById('veilleGrid');
     const dot    = document.getElementById('veilleStatusDot');
     const txt    = document.getElementById('veilleStatusText');
